@@ -9,7 +9,13 @@ import greetRoute from "./routes/greet.routes.js"
 const PORT = process.env.PORT || 6000
 
 const app = express();
-app.use(cors());
+app.use(
+    cors({
+      origin: ["http://localhost:5175", "https://your-frontend-url.vercel.app"], 
+      methods: ["GET", "POST"],
+      allowedHeaders: ["Content-Type"],
+    })
+  );
 app.use(express.json());
 
 
